@@ -18,7 +18,7 @@
 	}
 
 	body, input, select, textarea {
-		color: _palette(fg);
+		color: _palette(fg) !important;
 		font-family: _font(family);
 		font-weight: _font(weight);
 		font-size: 1rem;
@@ -37,6 +37,12 @@
 
 		&:hover {
 			border-bottom-color: transparent;
+		}
+	}
+
+	ul, li {
+		&:focus {
+			outline: none !important;
 		}
 	}
 
@@ -84,8 +90,8 @@
 	}
 
 	h2 {
-		font-size: 1.5rem;
-		line-height: 1.4;
+		font-size: 1.5rem !important;
+		line-height: 1.4 !important;
 		letter-spacing: _font(letter-spacing-heading);
 	}
 

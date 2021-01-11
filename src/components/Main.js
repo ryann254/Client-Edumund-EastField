@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import Button from 'react-bootstrap/Button'
+
 import introbg from '../images/introbg.jpg'
 import aboutbg from '../images/aboutbg.jpg'
 import servicesbg from '../images/servicesbg.jpg'
@@ -7,8 +9,27 @@ import IntroContent from '../content/Intro-Content.yaml'
 import ServicesContent from '../content/Services-Content.yaml'
 import AboutContent from '../content/About-Content.yaml'
 import ContactContent from '../content/Contact-Content.yaml'
+//The form that appears
+import FormModal from './FormModal'
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props)
+    //The following will control opening and closing of the form.
+    this.state = {
+      modalShow: false
+    }
+
+    this.handleQuote = this.handleQuote.bind(this)
+  }
+
+  handleQuote() {
+    this.setState({
+      modalShow: !this.state.modalShow
+    })
+  }
+  
+
   render() {
     let close = (
       <div
@@ -18,7 +39,7 @@ class Main extends React.Component {
         }}
       ></div>
     )
-
+    console.log(this.state.modalShow)
     return (
       <div
         ref={this.props.setWrapperRef}
@@ -282,6 +303,9 @@ class Main extends React.Component {
               </a>
             </li>
           </ul> */}
+          {/* Enquiry Form */}
+          <Button onClick={this.handleQuote} variant="dark">Get An Inquiry</Button>
+          <FormModal show={this.state.modalShow} onHide={() => this.handleQuote()}/>
           {close}
         </article>
       </div>

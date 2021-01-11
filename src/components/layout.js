@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import '../assets/scss/main.scss'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Layout = ({ children, location }) => {
 
@@ -46,6 +47,8 @@ const Layout = ({ children, location }) => {
             ]}
           >
             <html lang="en" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"></link>
+            {/* WhatsApp Script */}
             <script defer data-key="4ecf177a-89ac-472c-aebc-b7351bd0731b" src="https://widget.tochat.be/bundle.js"></script>
           </Helmet>
           {content}
