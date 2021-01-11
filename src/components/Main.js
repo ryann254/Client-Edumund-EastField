@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import Button from 'react-bootstrap/Button'
+import { toast} from 'react-toastify'
+//For the toas component
+import 'react-toastify/dist/ReactToastify.css';
 
 import introbg from '../images/introbg.jpg'
 import aboutbg from '../images/aboutbg.jpg'
@@ -27,6 +29,10 @@ class Main extends React.Component {
     this.setState({
       modalShow: !this.state.modalShow
     })
+  }
+
+  showToast() {
+    toast('Success!, The message was sent')
   }
   
 
@@ -304,8 +310,9 @@ class Main extends React.Component {
             </li>
           </ul> */}
           {/* Enquiry Form */}
-          <Button onClick={this.handleQuote} variant="dark">Get An Inquiry</Button>
-          <FormComponent show={this.state.modalShow} onHide={() => this.handleQuote()}/>
+
+          <button onClick={this.handleQuote} variant="dark">Get An Inquiry</button>
+          <FormComponent showToast={this.showToast} show={this.state.modalShow} onHide={() => this.handleQuote()}/>
           {close}
         </article>
       </div>

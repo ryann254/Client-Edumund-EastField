@@ -1,6 +1,7 @@
 import React from 'react'
-import Layout from '../components/layout'
+import {ToastContainer} from 'react-toastify'
 
+import Layout from '../components/layout'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
@@ -95,6 +96,17 @@ class IndexPage extends React.Component {
         <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
           <div id="wrapper">
             <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
+            <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
             <Main
               isArticleVisible={this.state.isArticleVisible}
               timeout={this.state.timeout}

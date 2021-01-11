@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Fade from 'react-reveal/Fade'
-// import Form from 'react-bootstrap/Form'
-// import Col from 'react-bootstrap/Col'
+
 
 const Container = styled.div`
     position: absolute;
@@ -29,6 +28,23 @@ const Container = styled.div`
             border-color: rgba(245, 30, 15, 0.7);
             transition: all 0.4s ease-in;
         }
+    }
+
+    @media all and (max-width: 576px) {
+        width: 360px;
+
+        input::placeholder, textarea::placeholder {
+            font-size: 17px;
+        }
+
+        button {
+            padding: 0;
+            font-size: 17px;
+        }
+    }
+
+    @media all and (max-width: 360px) {
+        width: 300px;
     }
 `
 const Form = styled.form`
@@ -118,6 +134,11 @@ const Button = styled.button`
 `
 
 function FormComponent(props) {
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        props.showToast()
+        props.onHide()
+    }
     return (
         // If you want to add any new components or text fields first checkout the scss file in assets/scss/components since that file sometimes collides with reactbootstrap css. Hope this helps
         <>
@@ -126,17 +147,17 @@ function FormComponent(props) {
                 <div>
                 <Fade left>
                         <Container>
-                            <Form>
+                            <Form onSubmit={handleSubmit}>
                                 <h2>Please Fill out the Inquiry form below</h2>
                                 <div class="id">
-                                    <input type="text" placeholder="Your Full name" />
+                                    <input required type="text" placeholder="Your Full name" />
                                     <i class="far fa-user"></i>
                                 </div>
                                 <div class="id">
-                                    <input type="email" placeholder="Email address" />
+                                    <input required type="email" placeholder="Email address" />
                                     <i class="far fa-envelope"></i>
                                 </div>
-                                <textarea cols="15" rows="5" placeholder="Kindly type in your Message"></textarea>
+                                <textarea required cols="15" rows="5" placeholder="Kindly type in your Message"></textarea>
                                 <div className="_buttons">
                                     <Button>Send</Button>
                                     <Button onClick={props.onHide} className="close-btn">Close</Button>
