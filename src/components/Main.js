@@ -34,9 +34,6 @@ class Main extends React.Component {
       })
       this.handleShow()
     } else {
-      this.setState({
-        form: ''
-      })
       this.handleShow()
     }
   }
@@ -61,7 +58,6 @@ class Main extends React.Component {
         }}
       ></div>
     )
-    
     return (
       <div
         ref={this.props.setWrapperRef}
