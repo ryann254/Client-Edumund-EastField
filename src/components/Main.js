@@ -19,13 +19,29 @@ class Main extends React.Component {
     super(props)
     //The following will control opening and closing of the form.
     this.state = {
-      modalShow: false
+      modalShow: false,
+      form: ''
     }
 
     this.handleQuote = this.handleQuote.bind(this)
+    this.handleShow = this.handleShow.bind(this)
   }
 
-  handleQuote() {
+  handleQuote(e) {
+    if(e.target.className.includes('form')) {
+      this.setState({
+        form: e.target.className
+      })
+      this.handleShow()
+    } else {
+      this.setState({
+        form: ''
+      })
+      this.handleShow()
+    }
+  }
+
+  handleShow () {
     this.setState({
       modalShow: !this.state.modalShow
     })
@@ -45,7 +61,7 @@ class Main extends React.Component {
         }}
       ></div>
     )
-    console.log(this.state.modalShow)
+    
     return (
       <div
         ref={this.props.setWrapperRef}
@@ -310,9 +326,11 @@ class Main extends React.Component {
             </li>
           </ul> */}
           {/* Enquiry Form */}
-
-          <button onClick={this.handleQuote} variant="dark">Get An Inquiry</button>
-          <FormComponent showToast={this.showToast} show={this.state.modalShow} onHide={() => this.handleQuote()}/>
+          <div className="_contactButtons">
+            <button onClick={this.handleQuote} className="formButton">Form Button</button>
+            <button onClick={this.handleQuote}>Get An Inquiry</button>
+          </div>
+          <FormComponent form={this.state.form} showToast={this.showToast} show={this.state.modalShow} onHide={() => this.handleShow()}/>
           {close}
         </article>
       </div>

@@ -142,32 +142,61 @@ function FormComponent(props) {
     return (
         // If you want to add any new components or text fields first checkout the scss file in assets/scss/components since that file sometimes collides with reactbootstrap css. Hope this helps
         <>
-            {props.show ? 
+            {props.form !== 'formButton' ?
                 (
-                <div>
-                <Fade left>
-                        <Container>
-                            <Form onSubmit={handleSubmit}>
-                                <h2>Please Fill out the Inquiry form below</h2>
-                                <div class="id">
-                                    <input required type="text" placeholder="Your Full name" />
-                                    <i class="far fa-user"></i>
-                                </div>
-                                <div class="id">
-                                    <input required type="email" placeholder="Email address" />
-                                    <i class="far fa-envelope"></i>
-                                </div>
-                                <textarea required cols="15" rows="5" placeholder="Kindly type in your Message"></textarea>
-                                <div className="_buttons">
-                                    <Button>Send</Button>
-                                    <Button onClick={props.onHide} className="close-btn">Close</Button>
-                                </div>
-                            </Form>
-                        </Container>
-                    </Fade>
-                </div>
+                    props.show ? (
+                        <div>
+                            <Fade left>
+                                    <Container>
+                                        <Form onSubmit={handleSubmit}>
+                                            <h2>Please Fill out the Inquiry form below</h2>
+                                            <div class="id">
+                                                <input required type="text" placeholder="Your Full name" />
+                                                <i class="far fa-user"></i>
+                                            </div>
+                                            <div class="id">
+                                                <input required type="email" placeholder="Email address" />
+                                                <i class="far fa-envelope"></i>
+                                            </div>
+                                            <textarea required cols="15" rows="5" placeholder="Kindly type in your Message"></textarea>
+                                            <div className="_buttons">
+                                                <Button type="submit">Send</Button>
+                                                <Button onClick={props.onHide} type="button" className="close-btn">Close</Button>
+                                            </div>
+                                        </Form>
+                                    </Container>
+                                </Fade>
+                            </div>
+                    ) : null
+                
                 )
-                : null
+                : (
+                    <>
+                    {props.show ? 
+                        (
+                            <Fade right>
+                                <Container>
+                                    <Form onSubmit={handleSubmit}>
+                                        <h2>Please Fill the Two Fields</h2>
+                                        <div class="id">
+                                            <input required type="text" placeholder="Your Full name" />
+                                            <i class="far fa-user"></i>
+                                        </div>
+                                        <div class="id">
+                                            <input required type="number" placeholder="Phone Number" />
+                                            <i class="fa fa-phone" aria-hidden="true"></i>
+                                        </div>
+                                        <div className="_buttons">
+                                            <Button>Send</Button>
+                                            <Button onClick={props.onHide} className="close-btn">Close</Button>
+                                        </div>
+                                    </Form>
+                                </Container>
+                            </Fade>
+                        ) : null
+                    }
+                    </>
+                )
             }
           </>
     )

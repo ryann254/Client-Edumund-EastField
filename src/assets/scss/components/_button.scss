@@ -1,5 +1,15 @@
 
 /* Button */
+	//Buttons on the Contact page
+	._contactButtons{
+		display: flex;
+		flex-direction: column;
+		width: 35%;
+
+		.formButton {
+			margin-bottom: 10px;
+		}
+	}
 
 	input[type="submit"],
 	input[type="reset"],
