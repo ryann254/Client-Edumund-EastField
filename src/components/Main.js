@@ -34,6 +34,9 @@ class Main extends React.Component {
       })
       this.handleShow()
     } else {
+      this.setState({
+        form: ''
+      })
       this.handleShow()
     }
   }
