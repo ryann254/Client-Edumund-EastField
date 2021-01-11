@@ -10,7 +10,7 @@ import ServicesContent from '../content/Services-Content.yaml'
 import AboutContent from '../content/About-Content.yaml'
 import ContactContent from '../content/Contact-Content.yaml'
 //The form that appears
-import FormModal from './FormModal'
+import FormComponent from './FormComponent'
 
 class Main extends React.Component {
   constructor(props) {
@@ -305,7 +305,7 @@ class Main extends React.Component {
           </ul> */}
           {/* Enquiry Form */}
           <Button onClick={this.handleQuote} variant="dark">Get An Inquiry</Button>
-          <FormModal show={this.state.modalShow} onHide={() => this.handleQuote()}/>
+          <FormComponent show={this.state.modalShow} onHide={() => this.handleQuote()}/>
           {close}
         </article>
       </div>

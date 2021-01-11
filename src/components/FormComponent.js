@@ -120,26 +120,35 @@ const Button = styled.button`
 function FormComponent(props) {
     return (
         // If you want to add any new components or text fields first checkout the scss file in assets/scss/components since that file sometimes collides with reactbootstrap css. Hope this helps
-        <Fade left>
-            <Container>
-                <Form>
-                    <h2>Please Fill out the Inquiry form below</h2>
-                    <div class="id">
-                        <input type="text" placeholder="Your Full name" />
-                        <i class="far fa-user"></i>
-                    </div>
-                    <div class="id">
-                        <input type="email" placeholder="Email address" />
-                        <i class="far fa-envelope"></i>
-                    </div>
-                    <textarea cols="15" rows="5" placeholder="Kindly type in your Message"></textarea>
-                    <div className="_buttons">
-                        <Button>Send</Button>
-                        <Button onClick={props.onHide} className="close-btn">Close</Button>
-                    </div>
-                </Form>
-            </Container>
-        </Fade>
+        <>
+            {props.show ? 
+                (
+                <div>
+                <Fade left>
+                        <Container>
+                            <Form>
+                                <h2>Please Fill out the Inquiry form below</h2>
+                                <div class="id">
+                                    <input type="text" placeholder="Your Full name" />
+                                    <i class="far fa-user"></i>
+                                </div>
+                                <div class="id">
+                                    <input type="email" placeholder="Email address" />
+                                    <i class="far fa-envelope"></i>
+                                </div>
+                                <textarea cols="15" rows="5" placeholder="Kindly type in your Message"></textarea>
+                                <div className="_buttons">
+                                    <Button>Send</Button>
+                                    <Button onClick={props.onHide} className="close-btn">Close</Button>
+                                </div>
+                            </Form>
+                        </Container>
+                    </Fade>
+                </div>
+                )
+                : null
+            }
+          </>
     )
 }
 

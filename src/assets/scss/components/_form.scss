@@ -149,6 +149,12 @@
 		padding: 0.75rem 1rem;
 	}
 
+	input[type="textarea"] {
+		&::placeholder {
+			color: rgba(255,255,255, 0.8);
+		}
+	}
+
 	input[type="checkbox"],
 	input[type="radio"] {
 		@include vendor('appearance', 'none');
@@ -230,34 +236,34 @@
 	::-webkit-input-placeholder {
 		font-family: "Source Sans Pro", sans-serif;
 		font-weight: 500;
+		color: rgba(255,255,255, 0.8);
 		// color: _palette(fg-light) !important;
-		opacity: 1.0;
 	}
 
 	:-moz-placeholder {
 		font-family: "Source Sans Pro", sans-serif;
 		font-weight: 500;
 		// color: _palette(fg-light) !important;
-		opacity: 1.0;
+		color: rgba(255,255,255, 0.8);
 	}
 
 	::-moz-placeholder {
 		font-family: "Source Sans Pro", sans-serif;
 		font-weight: 500;
 		// color: _palette(fg-light) !important;
-		opacity: 1.0;
+		color: rgba(255,255,255, 0.8);
 	}
 
 	:-ms-input-placeholder {
 		font-family: "Source Sans Pro", sans-serif;
 		font-weight: 500;
 		// color: _palette(fg-light) !important;
-		opacity: 1.0;
+		color: rgba(255,255,255, 0.8);
 	}
 
 	.formerize-placeholder {
 		font-family: "Source Sans Pro", sans-serif;
 		font-weight: 500;
 		// color: _palette(fg-light) !important;
-		opacity: 1.0;
+		color: rgba(255,255,255, 0.8);
 	}
