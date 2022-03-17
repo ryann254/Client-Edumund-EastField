@@ -1,8 +1,6 @@
 ## Edmund Eastfield Consultancy
 
-This Gatsby web Project belongs to Edmund Eastfield Consultancy.
-
-Authorised personnel of Edmund Eastfield are allowed to edit, modify and change contents of this project.
+This Gatsby web Project belongs to Edmund Eastfield Consultancy. It eases the process of applying and processing of documents such as Visas for people looking for employment in Dubai.
 
 ## Installation
 
